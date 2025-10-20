@@ -42,7 +42,7 @@ function Counter() {
   return (
     <Container>
       <Title>New Year CountDown</Title>
-      <Title>2026</Title>
+      <Title>{new Date().getFullYear()}</Title>
       <FlexBox>
         {num.map((item, i) => {
           return <Span key={i}>{String(item).padStart(2, 0)}</Span>;
