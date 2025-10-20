@@ -8,12 +8,17 @@ function Counter() {
 
   // Calculate Dates
   const calc = () => {
-    const newY = new Date("2026-01-01T00:00:00").getTime();
     const oldY = new Date().getTime();
+    const newY = new Date(
+      `${new Date().getFullYear() + 1}-01-01T00:00:00`
+    ).getTime();
     // difference between two dates in seconds
     const difference = Math.floor((newY - oldY) / 1000);
     // validation
-    if (difference <= 0) return [0, 0, 0, 0];
+    if (difference <= 0) {
+      alert("Count Down has ended!");
+      return [0, 0, 0, 0];
+    }
     // calc data
     const day = Math.floor(difference / (3600 * 24));
     const hour = Math.floor((difference % (3600 * 24)) / 3600);
